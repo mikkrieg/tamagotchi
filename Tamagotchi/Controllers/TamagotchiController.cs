@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Tamagotchi.Models;
 using System.Collections.Generic;
+using System;
 
 namespace Tamagotchi.Controllers
 {
@@ -10,6 +11,7 @@ namespace Tamagotchi.Controllers
       public ActionResult Index()
       {
         List<Pet> allPets = Pet.GetAll();
+        Pet.DecreaseStats();
         return View(allPets);
       }
     [HttpGet("/tamagotchi/new")]
@@ -30,12 +32,35 @@ namespace Tamagotchi.Controllers
       return View(findPet);
     }
     [HttpGet("/tamagotchi/{id}/feed")]
-    public ActionResult Edit(int id)
+    public ActionResult EditFood(int id)
     {
       Pet findPet = Pet.Find(id);
-    
+      //logic to change food up and others down
+      findPet.IncreaseFood();
+      return RedirectToAction("Show", new { findPet.Id });
+    }
+      [HttpGet("/tamagotchi/{id}/interact")]
+    public ActionResult EditAttention(int id)
+    {
+      Pet findPet = Pet.Find(id);
+      //logic to change food up and others down
+      findPet.IncreaseAttention();
+      return RedirectToAction("Show", new { findPet.Id });
+    }
+      [HttpGet("/tamagotchi/{id}/sleep")]
+    public ActionResult EditSleep(int id)
+    {
+      Pet findPet = Pet.Find(id);
+      //logic to change food up and others down
+      findPet.IncreaseSleep();
+      return RedirectToAction("Show", new { findPet.Id });
+    }
 
-      return RedirectToAction("Show", findPet);
+    [HttpPost("/tamagotchi/delete/{id}")]
+    public ActionResult DeletePet(int id)
+    {
+      Pet.RemovePet(id);
+      return RedirectToAction("Index");
     }
   }
 }

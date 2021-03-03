@@ -5,13 +5,13 @@ namespace Tamagotchi.Models
 {
   public class Pet
   {
-    public int Food { get; } = 100;
-    public int Attention { get; } = 100;
-    public int Sleep { get; } = 100;
+    public int Food { get; set; } = 100;
+    public int Attention { get; set; } = 100;
+    public int Sleep { get; set; } = 100;
 
     public string Mood { get; }
     public string Name { get; set; }
-    public int Id { get; }
+    public int Id { get; set;}
 
     private static List<Pet> _instances = new List<Pet> {};
 
@@ -35,6 +35,42 @@ namespace Tamagotchi.Models
       return _instances[searchId-1];
     }
 
+    public static void DecreaseStats()
+    {
+      foreach(Pet pet in _instances)
+      {
+        pet.Food -= 10;
+        pet.Attention -= 10;
+        pet.Sleep -= 10;
+      }
+    }
+
+    public void IncreaseFood()
+    {
+      this.Food = 100;
+    }
+
+      public void IncreaseAttention()
+    {
+      this.Attention = 100;
+    }
+
+      public void IncreaseSleep()
+    {
+      this.Sleep = 100;
+    }
+    
+    public static void RemovePet(int searchId)
+    {
+      Pet petToRemove = Pet.Find(searchId);
+      _instances.Remove(petToRemove);
+
+    //reassign ids
+      for(int i=0; i < _instances.Count; i++)
+      {
+        _instances[i].Id = i+1;
+      }
+    }
   }
 }
 

@@ -13,7 +13,8 @@ namespace ToDoList
     {
       var builder = new ConfigurationBuilder()
           .SetBasePath(env.ContentRootPath)
-          .AddEnvironmentVariables();
+          
+.AddEnvironmentVariables();
       Configuration = builder.Build();
     }
 
