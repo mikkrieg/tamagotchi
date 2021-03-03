@@ -1,0 +1,27 @@
+@using Tamagotchi.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@Model.Name</title>
+</head>
+<body>
+  <h2>Your Pet</h2>
+  <h2>@Model.Name</h2>
+
+  <ul>
+    <li>Food: @Model.Food</li>
+    <li>Attention: @Model.Attention</li>
+    <li>Sleep: @Model.Sleep</li>
+  </ul>
+
+  <a href="/tamagotchi/@Model.id/feed">feed</a>
+  <a href="/tamagotchi/@Model.id/interact">Interact</a>
+  <a href="/tamagotchi/@Model.id/sleep">Sleep</a>
+
+  <a href="/tamagotchi">See all Pets</a>
+</body>
+</html>
