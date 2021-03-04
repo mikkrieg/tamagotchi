@@ -11,29 +11,32 @@
   <title>@Model.Name</title>
 </head>
 <body>
-  <h2>Your Pet</h2>
-  <h2>@Model.Name</h2>
-  @if(@Model.Food > 0 && @Model.Attention > 0 && @Model.Sleep > 0)
-  {
-    <ul>
-      <li>Food: @Model.Food</li>
-      <li>Attention: @Model.Attention</li>
-      <li>Sleep: @Model.Sleep</li>
-    </ul>
+  <div class="container">
+        <h2>Your Pet</h2>
+        <h2>@Model.Name</h2>
+        @if(@Model.Food > 0 && @Model.Attention > 0 && @Model.Sleep > 0)
+        {
+          <ul>
+            <li>Food: @Model.Food</li>
+            <li>Attention: @Model.Attention</li>
+            <li>Sleep: @Model.Sleep</li>
+          </ul>
 
-    <a href="/tamagotchi/@Model.Id/feed">feed</a>
-    <a href="/tamagotchi/@Model.Id/interact">Interact</a>
-    <a href="/tamagotchi/@Model.Id/sleep">Sleep</a>
+          <a href="/tamagotchi/@Model.Id/feed">feed</a>
+          <a href="/tamagotchi/@Model.Id/interact">Interact</a>
+          <a href="/tamagotchi/@Model.Id/sleep">Sleep</a>
 
-    <a href="/tamagotchi">See all Pets</a>
-  }
-  else 
-  {
-    <p>Oh no @Model.Name is dead</p>
-    <form action="/tamagotchi/delete/@Model.Id" method="post">
-      <button type="submit" name="button">Remove Pet</button>
-    </form>
-    
-  }
+          <a href="/tamagotchi">See all Pets</a>
+        }
+        else 
+        {
+          <p>Oh no @Model.Name is dead</p>
+          <form action="/tamagotchi/delete/@Model.Id" method="post">
+            <button type="submit" name="button">Bury Pet</button>
+          </form>
+          
+        } 
+  </div>
 </body>
 </html>
+

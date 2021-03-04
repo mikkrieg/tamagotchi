@@ -1,0 +1,14 @@
+body {
+    background-color: #f7c7a8;
+}
+
+.row {
+  margin-top: 10vh;
+}
+
+
+#newTamagotchi {
+  position: fixed;
+  bottom:10vh;
+  right: 10vw;
+}

@@ -1,0 +1,14 @@
+body {
+    background-color: #f7c7a8;
+}
+
+h1 {
+    text-align: center;
+}
+
+#create {
+    font-size: 1.5em;
+    display: block;
+    margin: auto;
+    margin-top: 3%;
+}

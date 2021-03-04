@@ -5,17 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link href="~/css/styles.css" rel="stylesheet" type="text/css">
+  <link href="~/css/New.css" rel="stylesheet" type="text/css">
   <title>Create Your Pet</title>
 </head>
 <body>
-  <h1>Welcome to Tamagotchi</h1>
-
-  <form action="/tamagotchi" method="post">
-    <label for="name">Enter a name for your tamagotchi</label>
-    <input id="name" type="text" name="name">
-    <button type="submit">Create</button>
-  </form>
+  <h1>Tamagotchi Creation</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <form action="/tamagotchi" method="post">
+        <div class="row">
+          <label for="name" class="text-center">Enter a name for your tamagotchi</label>
+        </div>
+        <div class="row">
+          <input id="name" type="text" name="name" class="form-control">
+        </div>
+        <div class="row">
+          <button type="submit" class="btn btn-dark" id="create">Create</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
