@@ -11,18 +11,18 @@
 </head>
 <body>
   <div class="container">
-    <div class="row">
       @if (Model.Count == 0)
-      {
-        <p>Sorry! There are no tamagotchi created</p>
+      { 
+          <p class="text-center">Sorry! There are no tamagotchi created</p>
       }
         @foreach (Pet pet in Model)
         {
-          <div class="col-3">
-            <a href='/tamagotchi/@pet.Id'><button class="btn btn-info">@pet.Name</button></a>
-          </div>  
+          <div class="row">
+            <div class="col-3">
+              <a href='/tamagotchi/@pet.Id'><button class="btn btn-info" id="tamagotchi">@pet.Name</button></a>
+            </div>  
+          </div>
         }
-      </div>
         <a href="/tamagotchi/new" id="newTamagotchi"><button class="btn btn-dark">Create a new Tamagotchi</button></a>
         @* <p>@Pet.Find(1).Name</p> *@ 
   </div>

@@ -14,44 +14,47 @@ namespace Tamagotchi.Controllers
         Pet.DecreaseStats();
         return View(allPets);
       }
+
     [HttpGet("/tamagotchi/new")]
     public ActionResult New()
     {
       return View();
     }
+
     [HttpPost("/tamagotchi")]
     public ActionResult Create(string name)
     {
       Pet newPet = new Pet(name);
       return RedirectToAction("Index");
     }
+
     [HttpGet("/tamagotchi/{id}")]
     public ActionResult Show(int id)
     {
       Pet findPet = Pet.Find(id);
       return View(findPet);
     }
+
     [HttpGet("/tamagotchi/{id}/feed")]
     public ActionResult EditFood(int id)
     {
       Pet findPet = Pet.Find(id);
-      //logic to change food up and others down
       findPet.IncreaseFood();
       return RedirectToAction("Show", new { findPet.Id });
     }
-      [HttpGet("/tamagotchi/{id}/interact")]
+
+    [HttpGet("/tamagotchi/{id}/interact")]
     public ActionResult EditAttention(int id)
     {
-      Pet findPet = Pet.Find(id);
-      //logic to change food up and others down
+      Pet findPet = Pet.Find(id);   
       findPet.IncreaseAttention();
       return RedirectToAction("Show", new { findPet.Id });
     }
-      [HttpGet("/tamagotchi/{id}/sleep")]
+
+    [HttpGet("/tamagotchi/{id}/sleep")]
     public ActionResult EditSleep(int id)
     {
       Pet findPet = Pet.Find(id);
-      //logic to change food up and others down
       findPet.IncreaseSleep();
       return RedirectToAction("Show", new { findPet.Id });
     }

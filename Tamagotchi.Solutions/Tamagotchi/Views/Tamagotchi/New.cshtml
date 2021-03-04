@@ -13,12 +13,12 @@
   <div class="container">
     <div class="row">
       <div class="col-6 offset-3">
+          <p>Enter a name for your tamagotchi</p>
         <form action="/tamagotchi" method="post">
         <div class="row">
-          <label for="name" class="text-center">Enter a name for your tamagotchi</label>
-        </div>
-        <div class="row">
-          <input id="name" type="text" name="name" class="form-control">
+          <div class="col-6 offset-3">
+            <input id="name" type="text" name="name" class="form-control" maxlength="10">
+          </div>
         </div>
         <div class="row">
           <button type="submit" class="btn btn-dark" id="create">Create</button>
